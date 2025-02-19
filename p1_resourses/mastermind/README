@@ -1,0 +1,37 @@
+This repository is meant to be an implementation of the Mastermind
+Word game, for P1 of CS5031.
+
+A Maven build script has been provided.
+
+Use
+```
+./mvnw compile
+```
+to compile the code. Note that for all these commands, replace `mvnw`
+by `mvnw.cmd` if you are on Windows. Also, the `-q` flag can be used
+to cut down the amount of output produced by Maven.
+
+To test, use
+```
+./mvnw test
+```
+
+A `jar` package can be produced by
+```
+./mvnw package
+```
+
+The program can be run, either by Maven, using
+```
+./mvnw exec:java
+```
+or from the packaged jar, using
+```
+java -cp target/mastermind-0.1-SNAPSHOT.jar stacs.example.MastermindApp
+```
+
+Finally, the built or partially built products (in the target
+directory) can be deleted by using
+```
+./mvnw clean
+```

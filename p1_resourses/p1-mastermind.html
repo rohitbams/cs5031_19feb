@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+	<meta name="author" content="Director of Teaching - Computer Science"/>
+	<meta name="created" content="2017-02-10T10:57:00"/>
+	<meta name="changed" content="2025-02-05T10:28:32"/>
+	<meta name="AppVersion" content="15.0000"/>
+	<style type="text/css">
+		@page { size: 21cm 29.7cm; margin-left: 2.54cm; margin-right: 2.54cm; margin-top: 1.27cm; margin-bottom: 1.27cm }
+		p { color: #000000; line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.25cm; direction: ltr; background: transparent }
+		p.western { font-family: "Calibri", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Calibri"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "Calibri"; font-size: 12pt; so-language: hi-IN }
+		a:link { color: #0563c1; text-decoration: underline }
+	</style>
+</head>
+<body lang="en-US" text="#000000" link="#0563c1" vlink="#800000" dir="ltr">
+<div title="header"><p style="line-height: 100%; margin-bottom: 1.17cm">
+	<br/>
+
+	</p>
+</div><p align="left" style="line-height: 115%; page-break-inside: auto; orphans: 0; widows: 0; margin-bottom: 0cm; background: transparent; page-break-before: auto; page-break-after: auto">
+<br/>
+
+</p>
+<p align="center" style="line-height: 100%; margin-bottom: 0.42cm"><font size="4" style="font-size: 14pt"><b>CS5031
+- Software Engineering Practice</b></font></p>
+<table width="601" cellpadding="7" cellspacing="0">
+	<col width="286"/>
+	<col width="286"/>
+	<tr>
+		<td colspan="2" width="587" height="24" valign="top" style="border: none; padding: 0cm"><p style="orphans: 0; widows: 0">
+			<i>Assignment</i>: <b>P1 – Master Mind Word</b></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="286" style="border: none; padding: 0cm"><p style="orphans: 0; widows: 0">
+			<i>Deadline</i>: 21 February 2025 (Friday Week 4)</p>
+		</td>
+		<td width="286" style="border: none; padding: 0cm"><p align="right" style="orphans: 0; widows: 0">
+			<i>Credits</i>: 20% of module</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" width="587" valign="top" style="border: none; padding: 0cm"><p align="center" style="orphans: 0; widows: 0">
+			<i><b>MMS is the definitive source for deadline and credit details</b></i></p>
+		</td>
+	</tr>
+</table>
+<p style="line-height: 100%; margin-bottom: 0.21cm"><img src="p1-mastermind_html_fc8cc7d6.gif" name="Shape1" alt="Shape1" align="left" hspace="1" vspace="1" width="1" height="1"/>
+<br/>
+<br/>
+
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm"><b>You
+are expected to have read and understood all the information in this
+specification and any accompanying documents at least a week before
+the deadline. You must contact the lecturer regarding any queries
+well in advance of the deadline.</b></p>
+<p style="line-height: 100%; margin-bottom: 0.21cm"><b>Aim / Learning
+objectives</b></p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">The
+aim of this assignment is to practise the use of test-driven
+development as well as good coding practices, refactoring methods,
+build tools, and version control.</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm"><b>Requirements</b></p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">You
+are required to develop a portable Java version of Master Mind, a
+word game where players have ten attempts to guess a five-letter
+word. The rules are given in the Appendix; it is similar to the
+popular web game of Wordle, though with slightly different rules. 
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">The
+game must be developed using a test-driven development process and
+use Junit 5 as the unit-testing framework. The code must build, and
+tests must run using the Maven build framework. A Maven configuration
+file is provided.</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">You
+must use Git to version-control the code so that you can easily
+revert to a previous state if anything goes wrong, and the marker can
+assess how you have used a step-wise, systematic approach following
+the logic of test-driven development. For this purpose, check in
+versions of your code that pass the current set of unit tests before
+you add further tests and improve the quality of the code.</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">You
+must document all code with comments or JavaDoc. You may, but are not
+required to, use Maven plugins to generate JavaDoc where appropriate;
+if you do, please provide instructions on plugin usage in your
+report.</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">Your
+code must be able to model the game rules and game state. Your code
+must be able to be compiled into a portable jar file using Maven and
+run from the command line (as opposed to running from your IDE). 
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">The
+code must select a word randomly from the provided word-list and
+accept user input (guesses) from the command line with correct error
+handling. 
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">After
+each input, the appropriate feedback should be displayed to the user
+before accepting another input. Finally, your code should provide a
+score to the user based on how many guesses were required.</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">A
+simple command line interface is sufficient for this practical. You
+may use coloured outputs, or report results in text format. 
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">As
+long as the game play is implemented, you are allowed to add
+additional  features to your implementation. If you do so, please
+discuss this in your report.</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm"><b>Report</b></p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">Your
+report must include:</p>
+<ul>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0cm">
+	An overview of your implementation, including How to Play</p></li>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0cm">
+	A description of your test-driven approach</p></li>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0cm">
+	A description of your refactoring approach throughout development</p></li>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0cm">
+	A description of any other software development practices used</p></li>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0cm">
+	Any other relevant discussions, such as a description of extra
+	functionality if provided</p></li>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">
+	References</p></li>
+</ul>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">The
+length of the report should be <i>no more than 800</i> words
+(excluding references). This is an advisory limit.</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm"><b>What
+you are provided with</b></p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">We
+have provided for you a zip file containing starter code in a git
+repository. It has the standard Java source code structure you will
+have seen in exercises. Download it at</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">
+<font color="#0563c1"><u><a href="https://studres.cs.st-andrews.ac.uk/CS5031/Practicals/p1/mastermind.zip">https://studres.cs.st-andrews.ac.uk/CS5031/Coursework/p1/mastermind.zip</a></u></font>
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">Please
+unzip this file in a place of your choosing. There is an initialised
+git repository; please keep committing your changes, and at the end,
+zip up the directory including the git repository. The directory
+includes a project you can import into your favourite IDE. It also
+contains a Maven configuration file (<font face="Consolas, serif">pom.xml</font>)
+to build and test (instructions in the README). You should not need
+to edit the configuration, though there is no problem if you do. The
+project contains two word-lists: <font face="Consolas, serif"><font size="3" style="font-size: 12pt">src/main/resources/wordlist.txt</font></font>
+and <font face="Consolas, serif"><font size="3" style="font-size: 12pt">src/test/resources/wordlist-test.txt</font></font>.
+<font face="Consolas, serif"><font size="3" style="font-size: 12pt">wordlist.txt</font></font>
+contains the entire list of valid five-letter words for our game; use
+it for playing your implementation. <font face="Consolas, serif"><font size="3" style="font-size: 12pt">wordlist-test.txt</font></font>
+contains three five-letter words that can be used for your unit
+tests. You must use these as the word-lists. You must implement the
+model for the game using the contents of this project as a starting
+point and commit successive partial implementations to your git
+repository.</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm"><b>Autochecking</b></p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">This
+assignment does not use <font face="Consolas, serif">stacscheck</font>.
+You are expected to write your own tests.</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm"><b>Submission</b></p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">Create
+a single zip file of the entire directory containing your code,
+including the Git repository. Make sure there is:</p>
+<ol>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0cm">
+	A usable git repository (check with git log; this should give the
+	incremental versions of the source code).</p></li>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0cm">
+	A README file with instructions on building, unit testing, and
+	running your code.</p></li>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">
+	A PDF copy of your report.</p></li>
+</ol>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">The
+zip file must be submitted electronically via MMS by the deadline.
+The latest version of the code should be checked out in the
+workspace. Please ensure that the repository has everything committed
+(clean working directory), and the git repository is included in the
+zip file. Submissions in any other format will be rejected.</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm"><br/>
+<br/>
+
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm"><br/>
+<br/>
+
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm"><br/>
+<br/>
+
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm"><br/>
+<br/>
+
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm"><br/>
+<br/>
+
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm"><b>Marking</b></p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">Marking
+will follow the guidelines given in the school student handbook
+(<a href="http://info.cs.st-andrews.ac.uk/student-handbook/learning-teaching/feedback.html#Mark_Descriptors"><font color="#1155cc"><u>http://info.cs.st-andrews.ac.uk/student-handbook/learning-teaching/feedback.html#Mark_Descriptors</u></font></a>).
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">Some
+specific descriptors for this assignment are given below: 
+</p>
+<center>
+	<table width="609" cellpadding="7" cellspacing="0">
+		<col width="106"/>
+		<col width="473"/>
+		<tr valign="top">
+			<td width="106" style="border: 1px solid #000000; padding: 0cm 0.19cm"><p style="orphans: 0; widows: 0">
+				<b>Mark range</b></p>
+			</td>
+			<td width="473" style="border: 1px solid #000000; padding: 0cm 0.19cm"><p style="orphans: 0; widows: 0">
+				<b>Descriptor</b></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="106" style="border: 1px solid #000000; padding: 0cm 0.19cm"><p style="orphans: 0; widows: 0">
+				1 - 6</p>
+			</td>
+			<td width="473" style="border: 1px solid #000000; padding: 0cm 0.19cm"><p style="orphans: 0; widows: 0">
+				An attempt to develop a game model that fails to implement data
+				structures and game logic for the game. A minimal attempt at a
+				report showing a lack of understanding of the requirements.</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="106" style="border: 1px solid #000000; padding: 0cm 0.19cm"><p style="orphans: 0; widows: 0">
+				7 - 10</p>
+			</td>
+			<td width="473" style="border: 1px solid #000000; padding: 0cm 0.19cm"><p style="orphans: 0; widows: 0">
+				Successful implementation of the game logic but with significant
+				problems, either in terms of faults in the implementation or in
+				not following a test-driven process with no or few unit tests
+				produced. A reasonable attempt at a structured report with some
+				evidence covering the required information.</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="106" height="17" style="border: 1px solid #000000; padding: 0cm 0.19cm"><p style="orphans: 0; widows: 0">
+				11 - 13</p>
+			</td>
+			<td width="473" style="border: 1px solid #000000; padding: 0cm 0.19cm"><p style="orphans: 0; widows: 0">
+				A version of the game that may have shortcomings in the quality
+				of the implementation or may not pass all the unit tests.
+				Evidence of an attempt to follow the test-driven development
+				process. A competent attempt at the report with a clear structure
+				and writing covering most required aspects.</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="106" style="border: 1px solid #000000; padding: 0cm 0.19cm"><p style="orphans: 0; widows: 0">
+				14 - 16</p>
+			</td>
+			<td width="473" style="border: 1px solid #000000; padding: 0cm 0.19cm"><p style="orphans: 0; widows: 0">
+				An implementation that passes all the unit tests. Unit tests
+				cover all functionality, including edge cases and executing all
+				branches in the code. The code quality might need to be revised.
+				Evidence that the test-driven development process was used. Good
+				attempt at the report addressing all required aspects in good
+				writing without major problems.</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="106" style="border: 1px solid #000000; padding: 0cm 0.19cm"><p style="orphans: 0; widows: 0">
+				17 - 20</p>
+			</td>
+			<td width="473" style="border: 1px solid #000000; padding: 0cm 0.19cm"><p style="orphans: 0; widows: 0">
+				An implementation that is fully working and thoroughly tested,
+				applying the test-driven approach and evidence of code quality
+				refinements through refactoring methods, leading to excellent
+				code quality. A well-written report outlining excellent work
+				addressing all required aspects.</p>
+			</td>
+		</tr>
+	</table>
+</center>
+<p style="line-height: 100%; margin-bottom: 0.21cm"><br/>
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0.21cm"><b>Lateness</b></p>
+<p style="line-height: 100%; margin-bottom: 0.21cm">The standard
+penalty for late submission applies (Scheme A: 1 mark per 24 hour
+period, or part thereof):
+<a href="http://info.cs.st-andrews.ac.uk/student-handbook/learningteaching/assessment.html#lateness-penalties"><font color="#1155cc"><u>http://info.cs.st-andrews.ac.uk/student-handbook/learningteaching/assessment.html#lateness-penalties</u></font></a></p>
+<p style="line-height: 100%; margin-bottom: 0.21cm"><b>Good Academic
+Practice</b></p>
+<p style="line-height: 100%; margin-bottom: 0.21cm">The University
+policy on Good Academic Practice
+applies:<br/>
+<a href="https://www.st-andrews.ac.uk/students/rules/academicpractice/"><font color="#1155cc"><u>https://www.st-andrews.ac.uk/students/rules/academicpractice/</u></font></a></p>
+<p style="line-height: 100%; margin-bottom: 0.21cm"><br/>
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0.21cm"><br/>
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0.21cm"><br/>
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0.21cm; page-break-before: always">
+<b>Appendix: Master Mind Word Game Rules</b></p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">The
+objective of the game is to guess the correct five-letter word in ten
+or fewer tries. The five-letter word is unknown to the player until a
+correct guess, or there are no more guesses. After each guess,
+feedback is provided depending on the position and correctness of
+each letter.</p>
+<ul>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0cm">
+	A correct letter in the correct place counts as a green.</p></li>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0cm">
+	A correct letter in the wrong place counts as a yellow.</p></li>
+	<li><p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">
+	An incorrect letter counts as a grey.</p></li>
+</ul>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">The
+total number in each category is reported (note, unlike Wordle, it is
+not reported which letter in the guess is green, yellow, or grey).
+Letters can be used more than once, in reporting feedback each
+instance of the letter counts as a guess. Guessed words must exist in
+the word-list (Note: the word-list does not contain all five-letter
+words). 
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm"><br/>
+<br/>
+
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">Some
+examples below:</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">(Hidden
+word: DREAM)</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">Guess:
+DAISY; Feedback: 1 Green, 1 Yellow, 3 Grey (explanation: D counts as
+a green, A as a yellow, the other three are grey)</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">Guess:
+FREED; Feedback: 2 Green, 1 Yellow, 2 Grey (explanation: D counts as
+a yellow, the E in the 3<sup>rd</sup> position counts as a green, and
+so does the R. Note that the E in the 4<sup>th</sup> position counts
+as a grey as there is no other E in the hidden word).</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm"><br/>
+<br/>
+
+</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">(Hidden
+word: FREED)</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">Guess:
+DREAM; Feedback: 2 Green, 1 Yellow, 2 Grey (explanation: R and the E
+in the 3<sup>rd</sup> position counts as a green, the D counts as a
+yellow. Note no indication is made that the E is repeated).</p>
+<p align="justify" style="line-height: 100%; margin-bottom: 0.21cm">Guess:
+DRIED; Feedback: 3 Green, 2 Grey (explanation: The D in the 5<sup>th</sup>
+position, the R and the E counts as green. Note that the D in the 1<sup>st</sup>
+position counts as a grey).</p>
+<p align="center" style="line-height: 100%; margin-bottom: 0.21cm"><br/>
+<br/>
+
+</p>
+<div title="footer"><p align="right" style="line-height: 100%; page-break-inside: auto; orphans: 2; widows: 2; margin-top: 1.17cm; margin-bottom: 0cm; background: transparent; page-break-before: auto; page-break-after: auto">
+	<span style="background: #c0c0c0"><sdfield type=PAGE subtype=RANDOM format=PAGE>4</sdfield></span></p>
+	<p align="left" style="line-height: 100%; page-break-inside: auto; orphans: 2; widows: 2; margin-right: 0.64cm; margin-bottom: 0cm; background: transparent; page-break-before: auto; page-break-after: auto">
+	<span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">20</span></span></span></font></span></font></span>24<span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">/</span></span></span></font></span></font></span>25</p>
+</div>
+</body>
+</html>

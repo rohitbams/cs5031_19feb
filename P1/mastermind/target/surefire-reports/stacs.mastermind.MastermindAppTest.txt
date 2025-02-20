@@ -1,0 +1,38 @@
+-------------------------------------------------------------------------------
+Test set: stacs.mastermind.MastermindAppTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.056 s <<< FAILURE! -- in stacs.mastermind.MastermindAppTest
+stacs.mastermind.MastermindAppTest.wordUnder5Letters -- Time elapsed: 0.017 s
+stacs.mastermind.MastermindAppTest.guessWrong -- Time elapsed: 0.001 s
+stacs.mastermind.MastermindAppTest.shouldLoadWordlist -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.RuntimeException: java.io.FileNotFoundException: ../../../resources/wordlist.txt (No such file or directory)
+	at stacs.mastermind.MastermindApp.loadWordlist(MastermindApp.java:155)
+	at stacs.mastermind.MastermindAppTest.shouldLoadWordlist(MastermindAppTest.java:31)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: java.io.FileNotFoundException: ../../../resources/wordlist.txt (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at stacs.mastermind.MastermindApp.loadWordlist(MastermindApp.java:148)
+	... 4 more
+
+stacs.mastermind.MastermindAppTest.wordOver5Letters -- Time elapsed: 0.001 s
+stacs.mastermind.MastermindAppTest.getRandomWord -- Time elapsed: 0.001 s
+stacs.mastermind.MastermindAppTest.guessCorrect -- Time elapsed: 0.001 s
+stacs.mastermind.MastermindAppTest.isGameOver -- Time elapsed: 0.004 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <10> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at stacs.mastermind.MastermindAppTest.isGameOver(MastermindAppTest.java:38)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+

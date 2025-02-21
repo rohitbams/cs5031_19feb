@@ -2,46 +2,58 @@ package stacs.mastermind;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.File;
+import java.util.Objects;
 
 
 public class MastermindAppTest {
 
     // clean up the code by calling MastermindApp directly instead of mApp
-    private final MastermindApp mApp = new MastermindApp();
+//    private final MastermindApp mApp = new MastermindApp();
+//    private String guess = "";
     private File testWordListFile;
-    private ArrayList<String> wordlist;
-    private String guess = "";
+    private String[] wordList;
 
+
+
+    MastermindApp mApp;
 
     @BeforeEach
     public void loadTestWordList () {
-        testWordListFile = new File(this
-                                    .getClass()
-                                    .getClassLoader()
-                                    .getResource("wordlist-test.txt")
+        testWordListFile = new File(Objects.requireNonNull(this
+                        .getClass()
+                        .getClassLoader()
+                        .getResource("wordlist-test.txt"))
                                     .getFile());
     }
-    
+    @BeforeEach
+    void setUp() {
+        mApp = new MastermindApp();
+        wordList = mApp.getWords(testWordListFile);
+    }
+
     @Test
     public void shouldLoadWordlist() {
-        wordlist = MastermindApp.loadWordlist(testWordListFile);
-        // test wordlist only contains 3 words, so wordlist should have the size of 3
-        assertEquals(3, wordlist.size());
+        assertEquals(3, wordList.length);
     }
+
+
+    // tries should remain consistent across all conditional statements
+    // tries should not reset after non-existing word
+    // tries should not reset after longer than a five-letter word
+
+
 
     @Test
     public void isGameOver() {
 //        mApp.tries = 0;
-        assertTrue(mApp.isGameOver());
+        assertTrue(MastermindApp.isGameOver());
     }
 
     @Test
     public void guessCorrect() {
-        guess = "cache";
 //        assertTrue(true, mApp.guessCorrect(guess));
     }
 
@@ -52,8 +64,15 @@ public class MastermindAppTest {
     }
 
     @Test
-    public void wordOver5Letters() {
-//        assertEquals(int 5, mApp.chooseRandomWord(wordlist).chars());
+    public void shouldTakeUserInput() {
+        int tries = 4;
+        String word = "longword";
+//        assertEquals("longword", mApp.getGuessedWord());
+    }
+
+    @Test
+    public void shouldCheckIfLetterExistsInWord() {
+//        assertTrue(true, mApp.matchAlphabet('a'));
     }
 
     @Test
@@ -61,7 +80,19 @@ public class MastermindAppTest {
 
     @Test
     public void getRandomWord() {
-        //assertEquals();
+//        assertEquals(1, mApp.chooseRandomWord());
 
     }
+
+    @Test
+    public void shouldShowGreyFeedbackForWrongLetters() {
+        assertTrue(MastermindApp.grey > 0);
+    }
+
+    @Test
+    public void triesShouldIncrease() {
+        int tries = 4;
+        assertEquals(3, mApp.triesIncremented());
+    }
+
 }

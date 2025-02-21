@@ -1,52 +1,41 @@
 package stacs.mastermind;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 import java.util.MissingFormatArgumentException;
 
 public class MastermindApp {
-    static String questionWord = chooseRandomWord(getWords()); // the word to be guessed
-    static String answer = ""; // user's guess
-    static String line = "";
-    static ArrayList<String> wordList = new ArrayList<>();
-    static ArrayList<String> answers = new ArrayList<>(); // maybe implement an array of 10 answers per round
-    static ArrayList<Character> alphabets = new ArrayList<Character>();
-    static int tries = 0;
-//
-//    static int green = 0;
-//    static int red = 0;
-//    static int yellow = 0;
+    static File file = new File("/home/rb341/Documents/CS5031/Coursework/P1/P1/mastermind/src/main/resources/wordlist.txt");
+    static String questionWord = chooseRandomWord(getWords(file)); // the word to be guessed
+    static int tries = 1;
+
+    static int green = 0;
+    static int grey = 0;
+    static int yellow = 0;
+
+    static final String YELLOW_TEXT = "\u001B[33m";
+    static final String GREEN_TEXT = "\u001B[32m";
+    static final String RESET = "\u001B[0m";
 
     static String guessedWord = "";
-    static BufferedReader br;
 
     public static void main(String[] args) {
-        File file = new File("/home/rb341/Documents/CS5031/Coursework/P1/P1/mastermind/src/main/resources/wordlist.txt");
-        System.out.println("Welcome to Best value Wordle");
-        System.out.println(wordList.size());
-//        System.out.println(loadWordlist(file));
-        int tries = 0; // number of tries per round
+        System.out.println("Welcome to Mastermind!");
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
+        while (tries <= 10) {
             try {
-                System.out.println(questionWord);
-                System.out.println(getWords().length);
+                System.out.println("questionWord: " + questionWord);
                 System.out.println("Please enter a word: ");
                 guessedWord = scanner.nextLine().toLowerCase();
-
                 if (guessedWord.length() != 5) {
-                    System.out.println("The guessed word should have 5 characters!");
-                    tries++;
+                    System.out.println("Try" + tries +" The guessed word should have 5 characters!");
+                    triesIncremented();
                 } else if (!isGuessedWordInWordlist(guessedWord)) {
-                    System.out.printf("Try %d (%s): Word does not exist in the dictionary!\n",
-                            tries, guessedWord);
+                    System.out.println("Try" + tries + " Word does not exist in the word list!");
+                    triesIncremented();
                 } else if (guessedWord.equals(questionWord)) {
-                    System.out.printf("Congratulations! You guessed right in %d shot!\n",
-                            tries);
+                    System.out.println("Congratulations! You guessed the correct word!");
                     scanner.close();
                     return;
                 } else {
@@ -57,29 +46,28 @@ public class MastermindApp {
             }
 
             if (isGameOver()) {
-                System.out.println("You exceeded the maximum number of tries!");
-                System.out.println("You failed! The key word is " + questionWord + ".");
+                gameOver();
                 scanner.close();
                 return;
-//
-//            if (guessedWord.equals(questionWord)) {
-//                System.out.println("Correct answer!");
-//                giveFeedback();
-//                tries--;
-//            }
-
             }
         }
+        gameOver();
+        scanner.close();
+
     }
 
-    private static void getAlphabet() {
-        for (int i = 0; i < answer.length(); i++) {
-            alphabets.add(answer.charAt(i));
-        }
+    private static void gameOver() {
+        System.out.println("You exceeded the maximum number of tries!");
+        System.out.println("You failed! The hidden word is " + questionWord + ".");
+
+    }
+
+    public static int triesIncremented() {
+        return tries++;
     }
 
     // check if the character exist in the question word
-    private static boolean matchAlphabet(char letter) {
+    public static boolean matchAlphabet(char letter) {
         for (int i = 0; i < questionWord.length(); i++) {
             if (questionWord.charAt(i) == letter) {
                 return true;
@@ -88,69 +76,57 @@ public class MastermindApp {
         return false;
     }
 
+    public static void getGuessInput(String word) {
+
+    }
+
     // check guess correctness
-    private static void checkWord(String word) {
+    public static void checkWord(String word) {
         System.out.printf("Try%d (%s):\n", tries, word);
         for (int i = 0; i < word.length(); i++) {
             char letter = word.charAt(i);
             if (matchAlphabet(letter)) {
                 if (questionWord.charAt(i) == letter) {
-                    System.out.printf("%d. letter exists and located in right position.\n", i + 1);
-                } else {
-                    System.out.printf("%d. letter exists but located in wrong position.\n", i + 1);
+//                    System.out.println("green: " + letter);
+                    green++;
+                } else if (questionWord.contains(String.valueOf(letter)) && questionWord.charAt(i) != letter) {
+//                    System.out.println("yellow: " + letter);
+                    yellow++;
                 }
             } else {
-                System.out.printf("%d. letter does not exist.\n", i + 1);
+                grey++;
             }
         }
-        tries++;
-        System.out.println();
+        green();
+        yellow();
+        grey();
+        triesIncremented();
+        green = 0;
+        yellow = 0;
+        grey = 0;
     }
 
-//    private static void giveFeedback() {
-//        red();
-//        green();
-//        yellow();
-//    }
-//    private static void yellow() {
-//        for (int i = 0; i < answer.length(); i++) {
-//            if (alphabets.contains(questionWord.charAt(i))) {
-//                yellow++;
-//                System.out.println("You have " + answers.size() + " guesses!");
-//            }
-//        }
-//    }
-//
-//    private static void green() {
-//        for (int i = 0; i < answer.length(); i++) {
-//            if (alphabets.contains(questionWord.charAt(i))) {
-//                green++;
-//            }
-//        }
-//    }
-//
-//    private static void red() {
-//
-//    }
-
-    static boolean guessCorrect(String answer) {
-        if (answers.equals(answer)) {
-            return true;
-        }
-        return false;
+    static void green() {
+        System.out.println(GREEN_TEXT + "You got " + green + " green letters." + RESET);
+    }
+    static void grey() {
+        System.out.println("You got " + grey + " grey letters.");
+    }
+    public static void yellow() {
+        System.out.println(YELLOW_TEXT + "You got " + yellow + " yellow letters." + RESET);
     }
 
-    static boolean isGameOver() {
+    public static boolean isGameOver() {
         return tries > 10;
     }
 
-    static String chooseRandomWord(String[] words) {
+    public static String chooseRandomWord(String[] words) {
         return words[(int) (Math.random() * words.length)];
     }
 
     // checks whether the guess is in the wordlist
     static boolean isGuessedWordInWordlist(String word) {
-        for (String w : getWords()) {
+        for (String w : getWords(file)) {
             if (w.equals(word)) {
                 return true;
             }
@@ -158,29 +134,11 @@ public class MastermindApp {
         return false;
     }
 
-    protected static ArrayList<String> loadWordlist(File file) {
-        try {
-            br = new BufferedReader(new FileReader(file));
-            Random randomizer = new Random();
-//                return String randomWord = wordlist.get(randomizer.nextInt(wordlist.size()));
-//                return (ArrayList<String>) br.lines().filter(s -> !s.isEmpty()).collect(Collectors.toList());
-            while ((line = br.readLine()) != null) {
-                wordList.add(line);
-            }
-            return wordList;
-        } catch (FileNotFoundException e) {
-            System.err.println("Word List file not found");
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    static String[] getWords() {
+    public static String[] getWords(File file) {
         // read the wordlist
         try {
             String[] newArray;
-            BufferedReader br = new BufferedReader(new FileReader("/home/rb341/Documents/CS5031/Coursework/P1/P1/mastermind/src/main/resources/wordlist.txt"));
+            BufferedReader br = new BufferedReader(new FileReader(file));
             newArray = br.lines().toArray(String[]::new);
             return newArray;
         } catch (FileNotFoundException e) {

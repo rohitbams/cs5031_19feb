@@ -1,0 +1,57 @@
+Master Mind Word - Development Report
+1. Introduction
+Briefly introduce the project.
+Explain the aim: Implementing a Master Mind-style word game using Test-Driven Development (TDD), Maven, and Git.
+Mention key technologies used (Java, JUnit 5, Maven, Git).
+Outline the structure of the report.
+2. Implementation Overview
+Describe how the game works (How to Play section).
+Explain the game logic:
+Selecting a random word from the wordlist.
+Accepting user input and validating it.
+Generating feedback based on correct letters and positions.
+Tracking the number of guesses and determining a win/loss.
+Mention the command-line interface (CLI) and how the user interacts with the game.
+Highlight any additional features implemented beyond the base requirements.
+3. Test-Driven Development Approach
+Define Test-Driven Development (TDD) and why it was used.
+Describe how you wrote tests before implementing functionality.
+Explain the process:
+Writing unit tests for small components.
+Implementing the functionality to pass the tests.
+Refactoring and improving the implementation.
+Provide examples of key tests written (e.g., verifying word selection, input validation, feedback mechanism).
+Discuss challenges faced and how you overcame them.
+4. Refactoring Approach
+Define refactoring and its importance in improving code quality.
+Explain when and why refactoring was done.
+List specific improvements:
+Enhancing readability and maintainability.
+Reducing code duplication.
+Improving performance (if applicable).
+Mention tools or techniques used (e.g., Extract Method, Rename Variable, Remove Redundancy).
+5. Other Software Development Practices Used
+Discuss version control (Git):
+How commits were structured to show incremental development.
+Use of branches (if applicable).
+Examples of meaningful commit messages.
+Describe error handling (e.g., handling invalid input, missing word list).
+Mention coding standards followed (naming conventions, documentation using JavaDoc).
+If applicable, discuss dependency management with Maven and how build automation helped.
+6. Additional Features (If Implemented)
+List any extra features added beyond the base requirements.
+Explain why they were added and how they enhance the game.
+Discuss any trade-offs made (e.g., increased complexity vs. improved user experience).
+7. Conclusion
+Summarize key takeaways from the project.
+Reflect on the learning experience and what could be improved.
+Mention any future improvements or extensions you would consider.
+8. References
+List any references used for Java, TDD, Maven, or other technical concepts.
+Follow a consistent citation format (e.g., Harvard, IEEE).
+Getting Started with Writing
+Start with an outline: Expand on each section with key points.
+Keep it concise: The word limit is 800 words, so avoid unnecessary details.
+Use diagrams/code snippets where useful (e.g., showing test cases or refactoring examples).
+Proofread for clarity and coherence.
+Would you like help expanding any specific section?

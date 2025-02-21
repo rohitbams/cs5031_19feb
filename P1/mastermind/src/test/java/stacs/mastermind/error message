@@ -16,6 +16,11 @@ public List<String> getWords() {
     return words;
 }
 
+/home/rb341/Documents/CS5031/Coursework/P1/P1/mastermind/src/main/java/stacs/mastermind/MastermindApp.java:11:51
+java: method getWords in class stacs.mastermind.MastermindApp cannot be applied to given types;
+  required: no arguments
+  found:    java.io.File
+  reason: actual and formal argument lists differ in length
 
 
 java.lang.NullPointerException

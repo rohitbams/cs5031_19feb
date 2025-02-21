@@ -1,37 +1,29 @@
 package stacs.mastermind;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.io.File;
 import java.util.Objects;
 
-
 public class MastermindAppTest {
-
-    // clean up the code by calling MastermindApp directly instead of mApp
-//    private final MastermindApp mApp = new MastermindApp();
-//    private String guess = "";
+    
     private File testWordListFile;
     private String[] wordList;
 
-
-
-    MastermindApp mApp;
-
     @BeforeEach
-    public void loadTestWordList () {
-        testWordListFile = new File(Objects.requireNonNull(this
-                        .getClass()
+    public void loadTestWordList() {
+        testWordListFile = new File(Objects.requireNonNull(this.getClass()
                         .getClassLoader()
                         .getResource("wordlist-test.txt"))
-                                    .getFile());
+                .getFile());
     }
+
     @BeforeEach
     void setUp() {
-        mApp = new MastermindApp();
-        wordList = mApp.getWords(testWordListFile);
+        wordList = MastermindApp.getWords(testWordListFile);
     }
 
     @Test
@@ -39,60 +31,60 @@ public class MastermindAppTest {
         assertEquals(3, wordList.length);
     }
 
-
-    // tries should remain consistent across all conditional statements
-    // tries should not reset after non-existing word
-    // tries should not reset after longer than a five-letter word
-
-
-
     @Test
-    public void isGameOver() {
-//        mApp.tries = 0;
+    public void isGameOver_ShouldReturnTrue_WhenTriesExceedLimit() {
+        MastermindApp.tries = 11;
         assertTrue(MastermindApp.isGameOver());
     }
 
     @Test
-    public void guessCorrect() {
-//        assertTrue(true, mApp.guessCorrect(guess));
-    }
-
-
-    @Test
-    public void guessWrong() {
-//        assertFalse(false, mApp.guessCorrect());
-    }
-
-    @Test
-    public void shouldTakeUserInput() {
-        int tries = 4;
-        String word = "longword";
-//        assertEquals("longword", mApp.getGuessedWord());
-    }
-
-    @Test
-    public void shouldCheckIfLetterExistsInWord() {
-//        assertTrue(true, mApp.matchAlphabet('a'));
-    }
-
-    @Test
-    public void wordUnder5Letters() {}
-
-    @Test
-    public void getRandomWord() {
-//        assertEquals(1, mApp.chooseRandomWord());
-
-    }
-
-    @Test
-    public void shouldShowGreyFeedbackForWrongLetters() {
-        assertTrue(MastermindApp.grey > 0);
+    public void isGameOver_ShouldReturnFalse_WhenTriesAreWithinLimit() {
+        MastermindApp.tries = 5;
+        assertFalse(MastermindApp.isGameOver());
     }
 
     @Test
     public void triesShouldIncrease() {
-        int tries = 4;
-        assertEquals(3, mApp.triesIncremented());
+        int initialTries = MastermindApp.tries;
+        MastermindApp.triesIncremented();
+        assertEquals(initialTries + 1, MastermindApp.tries);
     }
 
+    @Test
+    public void matchAlphabet_ShouldReturnTrue_WhenLetterExistsInWord() {
+        MastermindApp.questionWord = "apple";
+        assertTrue(MastermindApp.matchAlphabet('p'));
+    }
+
+    @Test
+    public void matchAlphabet_ShouldReturnFalse_WhenLetterDoesNotExistInWord() {
+        MastermindApp.questionWord = "apple";
+        assertFalse(MastermindApp.matchAlphabet('z'));
+    }
+
+    @Test
+    public void isGuessedWordInWordlist_ShouldReturnTrue_ForValidWord() {
+        MastermindApp.questionWord = "apple";
+        assertTrue(MastermindApp.isGuessedWordInWordlist("apple"));
+    }
+
+    @Test
+    public void isGuessedWordInWordlist_ShouldReturnFalse_ForInvalidWord() {
+        MastermindApp.questionWord = "apple";
+        assertFalse(MastermindApp.isGuessedWordInWordlist("xyzzy"));
+    }
+
+    @Test
+    public void shouldShowGreyFeedbackForWrongLetters() {
+        MastermindApp.questionWord = "apple";
+        MastermindApp.checkWord("xxxxx");
+        assertTrue(MastermindApp.grey > 0);
+    }
+
+    @Test
+    public void shouldChooseRandomWord() {
+        String randomWord = MastermindApp.chooseRandomWord(wordList);
+        assertNotNull(randomWord);
+        assertTrue(randomWord.length() > 0);
+    }
 }

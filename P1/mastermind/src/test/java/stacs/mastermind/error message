@@ -1,3 +1,18 @@
+analyse my getWords method. tell me what's redundant and what's the control flow
+
+public static String[] getWords(File file) {
+        // read the wordlist
+        try {
+            String[] newArray;
+            BufferedReader br = new BufferedReader(new FileReader(wordsFile));
+            newArray = br.lines().toArray(String[]::new);
+            return newArray;
+        } catch (FileNotFoundException e) {
+            System.err.println("Word List file not found");
+            throw new RuntimeException(e);
+        }
+    }
+
 public List<String> getWords() {
     List<String> words = new ArrayList<>();
     String filePath = "path/to/words.txt"; // Ensure this path is correct

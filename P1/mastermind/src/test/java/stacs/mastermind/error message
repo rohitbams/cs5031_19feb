@@ -1,3 +1,22 @@
+public List<String> getWords() {
+    List<String> words = new ArrayList<>();
+    String filePath = "path/to/words.txt"; // Ensure this path is correct
+
+    try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            words.add(line.trim());
+        }
+    } catch (FileNotFoundException e) {
+        System.err.println("Error: Words file not found - " + filePath);
+    } catch (IOException e) {
+        System.err.println("Error reading words file: " + e.getMessage());
+    }
+
+    return words;
+}
+
+
 
 java.lang.NullPointerException
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:144)

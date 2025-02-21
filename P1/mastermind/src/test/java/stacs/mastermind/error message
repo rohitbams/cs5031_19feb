@@ -1,0 +1,102 @@
+
+java.lang.NullPointerException
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:144)
+	at java.base/java.io.FileReader.<init>(FileReader.java:75)
+	at stacs.mastermind.MastermindApp.getWords(MastermindApp.java:141)
+	at stacs.mastermind.MastermindAppTest.setUp(MastermindAppTest.java:26)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+
+java.lang.NullPointerException
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:144)
+	at java.base/java.io.FileReader.<init>(FileReader.java:75)
+	at stacs.mastermind.MastermindApp.getWords(MastermindApp.java:141)
+	at stacs.mastermind.MastermindAppTest.setUp(MastermindAppTest.java:26)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+
+java.lang.NullPointerException
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:144)
+	at java.base/java.io.FileReader.<init>(FileReader.java:75)
+	at stacs.mastermind.MastermindApp.getWords(MastermindApp.java:141)
+	at stacs.mastermind.MastermindAppTest.setUp(MastermindAppTest.java:26)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+
+java.lang.NullPointerException
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:144)
+	at java.base/java.io.FileReader.<init>(FileReader.java:75)
+	at stacs.mastermind.MastermindApp.getWords(MastermindApp.java:141)
+	at stacs.mastermind.MastermindAppTest.setUp(MastermindAppTest.java:26)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+
+java.lang.NullPointerException
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:144)
+	at java.base/java.io.FileReader.<init>(FileReader.java:75)
+	at stacs.mastermind.MastermindApp.getWords(MastermindApp.java:141)
+	at stacs.mastermind.MastermindAppTest.setUp(MastermindAppTest.java:26)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+
+java.lang.NullPointerException
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:144)
+	at java.base/java.io.FileReader.<init>(FileReader.java:75)
+	at stacs.mastermind.MastermindApp.getWords(MastermindApp.java:141)
+	at stacs.mastermind.MastermindAppTest.setUp(MastermindAppTest.java:26)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+
+java.lang.NullPointerException
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:144)
+	at java.base/java.io.FileReader.<init>(FileReader.java:75)
+	at stacs.mastermind.MastermindApp.getWords(MastermindApp.java:141)
+	at stacs.mastermind.MastermindAppTest.setUp(MastermindAppTest.java:26)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+
+java.lang.NullPointerException
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:144)
+	at java.base/java.io.FileReader.<init>(FileReader.java:75)
+	at stacs.mastermind.MastermindApp.getWords(MastermindApp.java:141)
+	at stacs.mastermind.MastermindAppTest.setUp(MastermindAppTest.java:26)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+
+java.lang.NullPointerException
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:144)
+	at java.base/java.io.FileReader.<init>(FileReader.java:75)
+	at stacs.mastermind.MastermindApp.getWords(MastermindApp.java:141)
+	at stacs.mastermind.MastermindAppTest.setUp(MastermindAppTest.java:26)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+
+java.lang.NullPointerException
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:144)
+	at java.base/java.io.FileReader.<init>(FileReader.java:75)
+	at stacs.mastermind.MastermindApp.getWords(MastermindApp.java:141)
+	at stacs.mastermind.MastermindAppTest.setUp(MastermindAppTest.java:26)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+
+Process finished with exit code 255

@@ -1,14 +1,15 @@
 # Master Mind Word - Java CLI Game
 
 ## Overview
-Master Mind Word is a command-line word-guessing game implemented in Java. The game follows a similar format to the classic "Mastermind" game, but with words instead of colors. It has been developed using **Test-Driven Development (TDD)**, **Maven**, and **Git**.
+Master Mind Word is a command-line word-guessing game implemented in Java. It is similar to the game Wordle, but with slightly different rules. It has been developed using **Test-Driven Development (TDD)**, **Maven**, and **Git**.
 
 ## How to Play
 - The game selects a random word from a predefined word list.
 - The player inputs a guessed word of the same length.
 - The game provides feedback:
-  - `+` indicates a correct letter in the correct position.
-  - `-` indicates a correct letter in the wrong position.
+  - A correct letter in the correct place counts as a green.
+  - A correct letter in the wrong place counts as a yellow.
+  - An incorrect letter counts as a grey.
 - The player has a limited number of attempts to guess the correct word.
 - The game ends when the correct word is guessed or when attempts run out.
 
@@ -50,24 +51,7 @@ mvn test
   2. Implement minimal code to pass the test.
   3. Refactor while keeping tests passing.
 
-### Refactoring Practices
-- Improved code readability and maintainability.
-- Removed redundant logic.
-- Followed SOLID principles.
 
-### Version Control with Git
-- Used meaningful commit messages.
-- Incremental development with frequent commits.
-- Managed branches for different features.
 
-## Future Enhancements
-- Implement a GUI version.
-- Add difficulty levels with varying word lengths.
-- Enhance error handling and user experience.
-
-## License
-This project is licensed under the MIT License.
 
 ---
-**Author:** Rohit  
-**GitHub:** [yourgithub](https://github.com/yourusername)
